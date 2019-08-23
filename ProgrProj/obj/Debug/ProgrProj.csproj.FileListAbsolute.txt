@@ -21,3 +21,16 @@ C:\Users\Aliciaa\source\repos\ProgrProj\PROGRAMACION3MTPELICULAS\ProgrProj\obj\D
 C:\Users\Aliciaa\source\repos\ProgrProj\PROGRAMACION3MTPELICULAS\ProgrProj\obj\Debug\ProgrProj.csproj.CopyComplete
 C:\Users\Aliciaa\source\repos\ProgrProj\PROGRAMACION3MTPELICULAS\ProgrProj\obj\Debug\ProgrProj.exe
 C:\Users\Aliciaa\source\repos\ProgrProj\PROGRAMACION3MTPELICULAS\ProgrProj\obj\Debug\ProgrProj.pdb
+C:\Users\Federico\Downloads\PROGRAMACION3MTPELICULAS\ProgrProj\bin\Debug\ProgrProj.exe.config
+C:\Users\Federico\Downloads\PROGRAMACION3MTPELICULAS\ProgrProj\bin\Debug\ProgrProj.exe
+C:\Users\Federico\Downloads\PROGRAMACION3MTPELICULAS\ProgrProj\bin\Debug\ProgrProj.pdb
+C:\Users\Federico\Downloads\PROGRAMACION3MTPELICULAS\ProgrProj\obj\Debug\ProgrProj.csprojAssemblyReference.cache
+C:\Users\Federico\Downloads\PROGRAMACION3MTPELICULAS\ProgrProj\obj\Debug\ProgrProj.Form1.resources
+C:\Users\Federico\Downloads\PROGRAMACION3MTPELICULAS\ProgrProj\obj\Debug\ProgrProj.Properties.Resources.resources
+C:\Users\Federico\Downloads\PROGRAMACION3MTPELICULAS\ProgrProj\obj\Debug\ProgrProj.csproj.GenerateResource.cache
+C:\Users\Federico\Downloads\PROGRAMACION3MTPELICULAS\ProgrProj\obj\Debug\ProgrProj.csproj.CoreCompileInputs.cache
+C:\Users\Federico\Downloads\PROGRAMACION3MTPELICULAS\ProgrProj\obj\Debug\ProgrProj.csproj.CopyComplete
+C:\Users\Federico\Downloads\PROGRAMACION3MTPELICULAS\ProgrProj\obj\Debug\ProgrProj.exe
+C:\Users\Federico\Downloads\PROGRAMACION3MTPELICULAS\ProgrProj\obj\Debug\ProgrProj.pdb
+C:\Users\Federico\Downloads\PROGRAMACION3MTPELICULAS\ProgrProj\obj\Debug\ProgrProj.FrmVentas.resources
+C:\Users\Federico\Downloads\PROGRAMACION3MTPELICULAS\ProgrProj\obj\Debug\ProgrProj.FrmCliente.resources

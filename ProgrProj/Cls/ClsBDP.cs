@@ -9,7 +9,7 @@ namespace ProgrProj.Cls
     class ClsBDP
     {
         //Guardo la stringconnection y realizo las conexiones necesarias y métodos para mejorar su uso desde otras clases
-        string StringConnection = "Data Source=ALICIA\\SQLEXPRESS;Initial Catalog = BDProgPractico; Integrated Security = True";
+        string StringConnection = "Data Source=LAPTOP-OQJU56H6;Initial Catalog = BDProgPractico; Integrated Security = True";
         public SqlConnection Conn = new SqlConnection();
         public ClsBDP()
         {

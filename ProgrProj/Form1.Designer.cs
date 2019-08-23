@@ -48,6 +48,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.TxtID = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.button3 = new System.Windows.Forms.Button();
+            this.LblError = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BCDGrid)).BeginInit();
             this.panel2.SuspendLayout();
@@ -58,10 +62,12 @@
             this.TxtTitulo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtTitulo.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtTitulo.Location = new System.Drawing.Point(130, 137);
+            this.TxtTitulo.MaxLength = 50;
             this.TxtTitulo.Name = "TxtTitulo";
             this.TxtTitulo.Size = new System.Drawing.Size(109, 20);
             this.TxtTitulo.TabIndex = 2;
             this.TxtTitulo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtTitulo.TextChanged += new System.EventHandler(this.TxtTitulo_TextChanged);
             // 
             // BttnGuardar
             // 
@@ -149,13 +155,14 @@
             this.BCDGrid.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.BCDGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.BCDGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.BCDGrid.BackgroundColor = System.Drawing.Color.White;
             this.BCDGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.BCDGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.BCDGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkRed;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -174,6 +181,7 @@
             this.BCDGrid.Size = new System.Drawing.Size(545, 251);
             this.BCDGrid.TabIndex = 0;
             this.BCDGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BCDGrid_CellClick);
+            this.BCDGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.BCDGrid_CellContentClick);
             // 
             // label2
             // 
@@ -191,10 +199,12 @@
             this.TxtGenero.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtGenero.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtGenero.Location = new System.Drawing.Point(130, 163);
+            this.TxtGenero.MaxLength = 50;
             this.TxtGenero.Name = "TxtGenero";
             this.TxtGenero.Size = new System.Drawing.Size(109, 20);
             this.TxtGenero.TabIndex = 9;
             this.TxtGenero.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtGenero.TextChanged += new System.EventHandler(this.TxtGenero_TextChanged);
             // 
             // label3
             // 
@@ -223,10 +233,12 @@
             this.TxtPais.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtPais.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtPais.Location = new System.Drawing.Point(130, 218);
+            this.TxtPais.MaxLength = 50;
             this.TxtPais.Name = "TxtPais";
             this.TxtPais.Size = new System.Drawing.Size(109, 20);
             this.TxtPais.TabIndex = 13;
             this.TxtPais.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtPais.TextChanged += new System.EventHandler(this.TxtPais_TextChanged);
             // 
             // BAnoCom
             // 
@@ -303,12 +315,57 @@
             this.label5.TabIndex = 17;
             this.label5.Text = "ID:";
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.White;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.DarkRed;
+            this.button2.Location = new System.Drawing.Point(303, 27);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(244, 56);
+            this.button2.TabIndex = 19;
+            this.button2.Text = "AGREGAR VENTA";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.Button2_Click_2);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.White;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.DarkRed;
+            this.button3.Location = new System.Drawing.Point(575, 27);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(244, 56);
+            this.button3.TabIndex = 20;
+            this.button3.Text = "AGREGAR CLIENTES";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.Button3_Click_1);
+            // 
+            // LblError
+            // 
+            this.LblError.AutoSize = true;
+            this.LblError.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblError.ForeColor = System.Drawing.Color.BlanchedAlmond;
+            this.LblError.Location = new System.Drawing.Point(299, 394);
+            this.LblError.Name = "LblError";
+            this.LblError.Size = new System.Drawing.Size(51, 19);
+            this.LblError.TabIndex = 19;
+            this.LblError.Text = "Error:";
+            this.LblError.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Brown;
             this.ClientSize = new System.Drawing.Size(890, 450);
+            this.Controls.Add(this.LblError);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.BttnSalir);
@@ -322,6 +379,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -344,6 +402,10 @@
         private System.Windows.Forms.Label label5;
         private Bunifu.Framework.UI.BunifuCustomDataGrid BCDGrid;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label LblError;
     }
 }
 

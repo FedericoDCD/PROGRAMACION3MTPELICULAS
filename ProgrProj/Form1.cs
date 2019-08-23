@@ -15,11 +15,12 @@ namespace ProgrProj
         public Form1()
         {
             InitializeComponent();
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Close();
+            Close();//Cierro el programa si se desea
         }
 
 
@@ -50,21 +51,28 @@ namespace ProgrProj
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Cls.ClsUs Objus = new Cls.ClsUs();
-            //Declaro un objeto de la clase ClsPeliculas y le asigno una película
-            Cls.ClsPeliculas ObjP = new Cls.ClsPeliculas();
-            String Titulo, Genero, Ano, Pais;
-            Titulo = TxtTitulo.Text;
-            Genero = TxtGenero.Text;
-            Ano = BAnoCom.selectedValue;
-            Pais = TxtPais.Text;
-            ObjP.SetTitulo(Titulo);
-            ObjP.SetGenero(Genero);
-            ObjP.SetAno(Ano);
-            ObjP.SetPais(Pais);
-            Objus.APelicula(ObjP);//Inserto la película
-            BCDGrid.DataSource = Objus.BuscarPeliculas(); //Realizo otra búsqueda de las películas y con ella actualizo la grilla con los resultados
-            LimpiarFormulario();//Limpio el formulario de lo ingresado
+            if (TxtTitulo.Text != "" & TxtGenero.Text != "" & TxtPais.Text != "" & BAnoCom.selectedIndex != -1)//Controlo que todo haya sido asignado
+            {
+                Cls.ClsUs Objus = new Cls.ClsUs();
+                //Declaro un objeto de la clase ClsPeliculas y le asigno una película
+                Cls.ClsPeliculas ObjP = new Cls.ClsPeliculas();
+                String Titulo, Genero, Ano, Pais;
+                Titulo = TxtTitulo.Text;
+                Genero = TxtGenero.Text;
+                Ano = BAnoCom.selectedValue;
+                Pais = TxtPais.Text;
+                ObjP.SetTitulo(Titulo);
+                ObjP.SetGenero(Genero);
+                ObjP.SetAno(Ano);
+                ObjP.SetPais(Pais);
+                Objus.APelicula(ObjP);//Inserto la película
+                BCDGrid.DataSource = Objus.BuscarPeliculas(); //Realizo otra búsqueda de las películas y con ella actualizo la grilla con los resultados
+                LimpiarFormulario();//Limpio el formulario de lo ingresado
+            }
+            else { //Si no se han ingresado todos los valores lo digo
+                LblError.Visible = true;
+                LblError.Text = "ERROR: No se han ingresado todos los valores del producto.";
+            }
         }
         private void LimpiarFormulario() {//Limpio el formulario
             TxtID.Text = "";
@@ -131,6 +139,52 @@ namespace ProgrProj
         private void button1_Click_1(object sender, EventArgs e)
         {//Reseteo el formulario
             LimpiarFormulario();
+        }
+
+        private void Button2_Click_2(object sender, EventArgs e)
+        {
+            /*
+            this.Size = new Size(1200, this.Size.Height);//Modifico el tamaño del formulario para mostrar la opción de ventas
+            this.CenterToScreen();//Centro el formulario
+            BttnSalir.Location = new Point(1135, -2);//Modifico la posición del botón de cierre del formulario
+            */
+            FrmVentas FrmN = new FrmVentas();//Utilizo una referencia del formulario FrmVentas para a posterior abrirlo
+            FrmN.Show();//Lo abro
+            //this.Hide();//Oculto el formulario actual
+
+        }
+
+        private void Button3_Click_1(object sender, EventArgs e)
+        {
+            FrmCliente FrmClient = new FrmCliente();//Peparo para abrir el formulario FrmCliente
+            FrmClient.Show();//Abro el formulario
+        }
+
+        private void TxtTitulo_TextChanged(object sender, EventArgs e)
+        {
+            ComprobarVisibilidadDeError();//Oculto el mensaje de error si lo he mostrado
+        }
+        private void ComprobarVisibilidadDeError()
+        {//Si hay un ingreso en un campo pongo oculto el mensaje de error si es visible al usuario
+            if (LblError.Visible)
+            {
+                LblError.Visible = false;
+            }
+        }
+
+        private void TxtGenero_TextChanged(object sender, EventArgs e)
+        {
+            ComprobarVisibilidadDeError();//Oculto el mensaje de error si lo he mostrado
+        }
+
+        private void TxtPais_TextChanged(object sender, EventArgs e)
+        {
+            ComprobarVisibilidadDeError(); //Oculto el mensaje de error si lo he mostrado
+        }
+
+        private void BCDGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
